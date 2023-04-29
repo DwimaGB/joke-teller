@@ -32,9 +32,8 @@ audioElement.addEventListener('loadedmetadata', ()=>{
 })
 
 replayBtn.addEventListener('click', ()=>{
-    if(audioElement.duration > 0){ // just ensuring audio has been loaded
         audioElement.play();
-    }
+
 })
 
 /*  */

@@ -70,6 +70,11 @@ body {
     background-color: #2F4858;
 }
 
+.btn-large{
+    height: 50px;
+    font-size: 1.25rem;
+}
+
 .btn:disabled{
     cursor: not-allowed;
 }
@@ -79,6 +84,30 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* loader */
+
+.loader{
+    aspect-ratio: 1;
+    width: 50px;
+    border: 5px solid #ced4da;
+    border-top-color: #CD47A0;
+    border-radius: 50%;
+    
+    animation: spin 1s infinite linear;
+
+    display: none;
+  }
+  
+  @keyframes spin{
+    from{
+      transform: rotate(0);
+    }
+    to{
+      transform: rotate(1turn);
+    }
+  }
+
 
 /* Media Query */
 
@@ -94,6 +123,11 @@ body {
 }
 
 @media screen and (max-width: 475px) {
+    .inner-container{
+        margin: 8px;
+        padding-inline: 1.825rem;
+    }
+
     .tooltip {
         font-size: 18px;
         width: 90vw;

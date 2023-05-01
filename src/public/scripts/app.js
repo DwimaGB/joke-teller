@@ -4,12 +4,14 @@ const viewJokeBtn = document.getElementById('view-joke');
 const audioElement = document.getElementById('audio');
 const replayBtn = document.getElementById('replay');
 const jokeDisplay = document.getElementById('joke');
+const loader = document.querySelector('.loader');
 
 const serverApi = `${window.origin}/api`;
 
 
 jokeBtn.addEventListener('click', async () => {
     jokeBtn.disabled = true; // disabling button to avoid simultaneous request
+    loading(); // content loading
 
     try {
         const tssData = await requestTextToSpeech();
@@ -27,6 +29,8 @@ jokeBtn.addEventListener('click', async () => {
 
 audioElement.addEventListener('loadedmetadata', ()=>{
     viewJokeBtn.disabled = false; //once a joke is loaded
+    loaded() // content loaded disable loading animation
+
     setTimeout(()=>{
         jokeBtn.disabled = false;
     }, audioElement.duration * 1000)  // enabling again after the joke has been told
@@ -84,3 +88,13 @@ async function requestTextToSpeech() {
     }
 }
 
+
+function loading(){
+    loader.style.display = 'block';
+    viewJokeBtn.style.display = 'none';
+}
+
+function loaded(){
+    loader.style.display = 'none';
+    viewJokeBtn.style.display = 'block';
+}

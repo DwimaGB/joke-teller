@@ -118,6 +118,7 @@ body {
     }
 
     .tooltip {
+        font-size: 20px;
         width: 80vw;
     }
 }

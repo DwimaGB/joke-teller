@@ -1,5 +1,6 @@
 
-const btn = document.getElementById('joke-btn');
+const jokeBtn = document.getElementById('joke-btn');
+const viewJokeBtn = document.getElementById('view-joke');
 const audioElement = document.getElementById('audio');
 const replayBtn = document.getElementById('replay');
 const jokeDisplay = document.getElementById('joke');
@@ -7,8 +8,8 @@ const jokeDisplay = document.getElementById('joke');
 const serverApi = `${window.origin}/api`;
 
 
-btn.addEventListener('click', async () => {
-    btn.disabled = true; // disabling button to avoid simultaneous request
+jokeBtn.addEventListener('click', async () => {
+    jokeBtn.disabled = true; // disabling button to avoid simultaneous request
 
     try {
         const tssData = await requestTextToSpeech();
@@ -25,8 +26,9 @@ btn.addEventListener('click', async () => {
 })
 
 audioElement.addEventListener('loadedmetadata', ()=>{
+    viewJokeBtn.disabled = false; //once a joke is loaded
     setTimeout(()=>{
-        btn.disabled = false;
+        jokeBtn.disabled = false;
     }, audioElement.duration * 1000)  // enabling again after the joke has been told
     
 })

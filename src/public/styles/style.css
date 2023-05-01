@@ -1,20 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
-*{
-    margin: 0;
-    padding: 0;
+* {
     box-sizing: border-box;
 }
 
-body{
-    min-height: 100vh;
+body {
+    font-family: 'Poppins', sans-seriff;
+    margin: 0;
+    background-color: #45badd;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+
+    background-image: url('/assets/robot.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+}
+
+.inner-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+
+    padding: 1.825rem 2.5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 9px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* buttons */
+
+.btn-container {
+    display: flex;
+    gap: 3rem;
+}
+
+.btn {
+    border: none;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    font-size: 1.125rem;
+    padding: 0.5em 1em;
+
+    background-color: #ff3482;
+    color: white;
+    box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    filter: brightness(95%);
+}
+
+.btn.btn-tooltip {
+    background-color: #CD47A0;
+}
+
+.btn.btn-secondary{
+    background-color: #2F4858;
+}
+
+.btn:disabled{
+    cursor: not-allowed;
+}
+
+#replay{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+/* Media Query */
+
+@media screen and (max-width: 768px) {
+    .container {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .tooltip {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .tooltip {
+        font-size: 18px;
+        width: 90vw;
+    }
 }
